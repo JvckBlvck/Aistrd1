@@ -109,8 +109,14 @@ namespace UnitTest1
 			list1.push_back(3);
 			int data;
 			int check;
-			list1.at(3, &data, &check);
-			Assert::AreEqual(check, -1);
+			try
+			{
+				list1.at(3, &data, &check);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(at_double_head)
 		{
@@ -153,8 +159,14 @@ namespace UnitTest1
 			list1.push_back(3.7);
 			double data;
 			int check;
-			list1.at(3, &data, &check);
-			Assert::AreEqual(check, -1);
+			try
+			{
+				list1.at(3, &data, &check);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(at_char_head)
 		{
@@ -197,8 +209,14 @@ namespace UnitTest1
 			list1.push_back('c');
 			char data;
 			int check;
-			list1.at(3, &data, &check);
-			Assert::AreEqual(check, -1);
+			try
+			{
+				list1.at(3, &data, &check);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(equal_lists_int_size_0)
 		{
