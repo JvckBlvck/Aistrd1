@@ -10,9 +10,14 @@ using namespace std;
 int main()
 {
 	list<int> mylist;
-	mylist.push_back(1);
-	mylist.push_back(2);
-	mylist.push_back(3);
+	try
+	{
+		mylist.pop_back();
+	}
+	catch (exception &ex)
+	{
+		cout << ex.what() << "\n";
+	}
 	cout << mylist;
 }
 

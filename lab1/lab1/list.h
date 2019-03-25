@@ -93,69 +93,66 @@ void list<T>::push_front(T data)
 template<typename T>
 void list<T>::pop_back()
 {
-	if (size>0)
+	if (size == 0)
+		throw exception("pop back from 0 size");
+	if (size == 1)
 	{
-		if (size == 1)
-		{
-			delete tail;
-			tail = nullptr;
-			head = nullptr;
-		}
-		else
-		{
-			node*cur = head;
-			while (cur->next != tail)
-				cur = cur->next;
-			delete tail;
-			tail = cur;
-		}
-		size--;
+		delete tail;
+		tail = nullptr;
+		head = nullptr;
 	}
+	else
+	{
+		node*cur = head;
+		while (cur->next != tail)
+			cur = cur->next;
+		delete tail;
+		tail = cur;
+	}
+	size--;
 }
 
 template<typename T>
 void list<T>::pop_front()
 {
-	if (size > 0)
+	if (size == 0)
+		throw exception("pop front from 0 size");
+	if (size == 1)
 	{
-		if (size == 1)
-		{
-			delete head;
-			tail = nullptr;
-			head = nullptr;
-		}
-		else
-		{
-			node*cur = head->next;
-			delete head;
-			head = cur;
-		}
-		size--;
+		delete head;
+		tail = nullptr;
+		head = nullptr;
 	}
+	else
+	{
+		node*cur = head->next;
+		delete head;
+		head = cur;
+	}
+	size--;
 }
 
 template<typename T>
 void list<T>::insert(size_t index, T data)
 {
-	if ((size - index) > 0)
+	if ((size - index) <= 0)
+		throw exception("index bigger or like size");
+	if (index == 0)
+		push_front(data);
+	else
 	{
-		if (index == 0)
-			push_front(data);
-		else
+		size_t current = 0;
+		node*cur = head;
+		node*prev;
+		while (current < index)
 		{
-			size_t current = 0;
-			node*cur = head;
-			node*prev;
-			while (current < index)
-			{
-				prev = cur;
-				cur = cur->next;
-				current++;
-			}
-			prev->next = new node(data);
-			(prev->next)->next = cur;
-			size++;
+			prev = cur;
+			cur = cur->next;
+			current++;
 		}
+		prev->next = new node(data);
+		(prev->next)->next = cur;
+		size++;
 	}
 }
 
@@ -163,45 +160,44 @@ template<typename T>
 void list<T>::at(size_t index, T * data, int * check)
 {
 	if (index >= size)
-		*check = -1;
-	else
 	{
-		size_t current = 0;
-		node*cur = head;
-		while (current < index)
-		{
-			cur = cur->next;
-			current++;
-		}
-		*data = cur->data;
-		*check = 1;
+		*check = -1;
+		throw exception("index bigger or like size");
 	}
+	size_t current = 0;
+	node*cur = head;
+	while (current < index)
+	{
+		cur = cur->next;
+		current++;
+	}
+	*data = cur->data;
+	*check = 1;
 }
 
 template<typename T>
 void list<T>::remove(size_t index)
 {
-	if (index < size)
+	if (index >= size)
+		throw exception("index bigger or like size");
+	if (index == 0)
+		pop_front();
+	else if (index == (size - 1))
+		pop_back();
+	else
 	{
-		if (index == 0)
-			pop_front();
-		else if (index == (size - 1))
-			pop_back();
-		else
+		size_t current = 0;
+		node*cur = head;
+		node*prev;
+		while (current < index)
 		{
-			size_t current = 0;
-			node*cur = head;
-			node*prev;
-			while (current < index)
-			{
-				prev = cur;
-				cur = cur->next;
-				current++;
-			}
-			prev->next = cur->next;
-			delete cur;
-			size--;
+			prev = cur;
+			cur = cur->next;
+			current++;
 		}
+		prev->next = cur->next;
+		delete cur;
+		size--;
 	}
 }
 
@@ -221,17 +217,16 @@ void list<T>::clear()
 template<typename T>
 void list<T>::set(T data, size_t index)
 {
-	if (index < size)
+	if (index >= size)
+		throw exception("index bigger or like size");
+	size_t current = 0;
+	node*cur = head;
+	while (current < index)
 	{
-		size_t current = 0;
-		node*cur = head;
-		while (current < index)
-		{
-			cur = cur->next;
-			current++;
-		}
-		cur->data = data;
+		cur = cur->next;
+		current++;
 	}
+	cur->data = data;
 }
 
 template<typename T>

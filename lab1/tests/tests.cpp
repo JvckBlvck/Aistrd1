@@ -347,9 +347,14 @@ namespace UnitTest1
 		TEST_METHOD(pop_back_int_from_0)
 		{
 			list<int> list1;
-			list<int> list2;
-			list2.pop_back();
-			Assert::IsTrue(equal_lists(list1, list2));
+			try 
+			{ 
+				list1.pop_back();
+			}
+			catch(exception &ex)
+			{
+				Assert::AreEqual("pop back from 0 size", ex.what());
+			}
 		}
 		TEST_METHOD(pop_back_int_from_1)
 		{
@@ -372,9 +377,14 @@ namespace UnitTest1
 		TEST_METHOD(pop_back_double_from_0)
 		{
 			list<double> list1;
-			list<double> list2;
-			list2.pop_back();
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.pop_back();
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("pop back from 0 size", ex.what());
+			}
 		}
 		TEST_METHOD(pop_back_double_from_1)
 		{
@@ -397,9 +407,14 @@ namespace UnitTest1
 		TEST_METHOD(pop_back_char_from_0)
 		{
 			list<char> list1;
-			list<char> list2;
-			list2.pop_back();
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.pop_back();
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("pop back from 0 size", ex.what());
+			}
 		}
 		TEST_METHOD(pop_back_char_from_1)
 		{
@@ -422,9 +437,14 @@ namespace UnitTest1
 		TEST_METHOD(pop_front_int_from_0)
 		{
 			list<int> list1;
-			list<int> list2;
-			list2.pop_front();
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.pop_back();
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("pop front from 0 size", ex.what());
+			}
 		}
 		TEST_METHOD(pop_front_int_from_1)
 		{
@@ -447,9 +467,14 @@ namespace UnitTest1
 		TEST_METHOD(pop_front_double_from_0)
 		{
 			list<double> list1;
-			list<double> list2;
-			list2.pop_front();
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.pop_back();
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("pop front from 0 size", ex.what());
+			}
 		}
 		TEST_METHOD(pop_front_double_from_1)
 		{
@@ -472,9 +497,14 @@ namespace UnitTest1
 		TEST_METHOD(pop_front_char_from_0)
 		{
 			list<char> list1;
-			list<char> list2;
-			list2.pop_front();
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.pop_back();
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("pop front from 0 size", ex.what());
+			}
 		}
 		TEST_METHOD(pop_front_char_from_1)
 		{
@@ -520,10 +550,14 @@ namespace UnitTest1
 		{
 			list<int> list1;
 			list1.push_back(1);
-			list<int> list2;
-			list2.push_back(1);
-			list2.insert(1, 2);
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.insert(1, 2);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(insert_double_index_0)
 		{
@@ -551,10 +585,14 @@ namespace UnitTest1
 		{
 			list<double> list1;
 			list1.push_back(1.7);
-			list<double> list2;
-			list2.push_back(1.7);
-			list2.insert(1, 2.7);
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.insert(1, 2.7);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(insert_char_index_0)
 		{
@@ -581,11 +619,14 @@ namespace UnitTest1
 		TEST_METHOD(insert_char_out_of_range)
 		{
 			list<char> list1;
-			list1.push_back('a');
-			list<char> list2;
-			list2.push_back('a');
-			list2.insert(1, 'b');
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.insert(1, 'c');
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(remove_int_index_0)
 		{
@@ -622,9 +663,14 @@ namespace UnitTest1
 		TEST_METHOD(remove_int_out_of_range)
 		{
 			list<int> list1;
-			list<int> list2;
-			list2.remove(0);
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.remove(0);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(remove_double_index_0)
 		{
@@ -661,9 +707,14 @@ namespace UnitTest1
 		TEST_METHOD(remove_double_out_of_range)
 		{
 			list<int> list1;
-			list<int> list2;
-			list2.remove(0);
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.remove(0);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(remove_char_index_0)
 		{
@@ -700,9 +751,14 @@ namespace UnitTest1
 		TEST_METHOD(remove_char_out_of_range)
 		{
 			list<int> list1;
-			list<int> list2;
-			list2.remove(0);
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.remove(0);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(clear_int_size_0)
 		{
@@ -768,10 +824,14 @@ namespace UnitTest1
 		{
 			list<int> list1;
 			list1.push_back(1);
-			list<int> list2;
-			list2.push_back(1);
-			list2.set(2, 1);
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.set(2, 1);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(set_double_middle)
 		{
@@ -786,10 +846,14 @@ namespace UnitTest1
 		{
 			list<double> list1;
 			list1.push_back(1.7);
-			list<double> list2;
-			list2.push_back(1.7);
-			list2.set(2.7, 1);
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.set(2.7, 1);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(set_char_middle)
 		{
@@ -803,11 +867,14 @@ namespace UnitTest1
 		TEST_METHOD(set_char_out_of_range)
 		{
 			list<char> list1;
-			list1.push_back('a');
-			list<char> list2;
-			list2.push_back('a');
-			list2.set('b', 1);
-			Assert::IsTrue(equal_lists(list1, list2));
+			try
+			{
+				list1.set('b', 1);
+			}
+			catch (exception &ex)
+			{
+				Assert::AreEqual("index bigger or like size", ex.what());
+			}
 		}
 		TEST_METHOD(is_empty_int_empty)
 		{

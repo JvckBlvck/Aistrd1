@@ -1,2 +1,3 @@
 ﻿  tests.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(423,5): error MSB6006: "CL.exe" завершилась с кодом 2.
 c:\users\senny\source\repos\lab1\tests\tests.cpp(1): fatal error C1041: невозможно открыть базу данных программы C:\Users\senny\source\repos\lab1\tests\Debug\vc141.pdb; если несколько файлов CL.EXE осуществляют запись в один и тот же PDB-файл, воспользуйтесь /FS
