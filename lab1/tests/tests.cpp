@@ -15,7 +15,7 @@ namespace UnitTest1
 		{
 			size_t size1 = 0;
 			list<int> list1;
-			list1.get_size(&size1);
+			size1 = list1.get_size();
 			size_t size2 = 0;
 			Assert::AreEqual(size1, size2);
 		}
@@ -26,7 +26,7 @@ namespace UnitTest1
 			list1.push_back(1);
 			list1.push_back(1);
 			list1.push_back(1);
-			list1.get_size(&size1);
+			size1 = list1.get_size();
 			size_t size2 = 3;
 			Assert::AreEqual(size1, size2);
 		}
@@ -34,7 +34,7 @@ namespace UnitTest1
 		{
 			size_t size1 = 0;
 			list<double> list1;
-			list1.get_size(&size1);
+			size1 = list1.get_size();
 			size_t size2 = 0;
 			Assert::AreEqual(size1, size2);
 		}
@@ -45,7 +45,7 @@ namespace UnitTest1
 			list1.push_back(1.7);
 			list1.push_back(1.7);
 			list1.push_back(1.7);
-			list1.get_size(&size1);
+			size1 = list1.get_size();
 			size_t size2 = 3;
 			Assert::AreEqual(size1, size2);
 		}
@@ -53,7 +53,7 @@ namespace UnitTest1
 		{
 			size_t size1 = 0;
 			list<char> list1;
-			list1.get_size(&size1);
+			size1 = list1.get_size();
 			size_t size2 = 0;
 			Assert::AreEqual(size1, size2);
 		}
@@ -64,7 +64,7 @@ namespace UnitTest1
 			list1.push_back('a');
 			list1.push_back('a');
 			list1.push_back('a');
-			list1.get_size(&size1);
+			size1 = list1.get_size();
 			size_t size2 = 3;
 			Assert::AreEqual(size1, size2);
 		}
@@ -75,8 +75,7 @@ namespace UnitTest1
 			list1.push_back(2);
 			list1.push_back(3);
 			int data;
-			int check;
-			list1.at(0, &data, &check);
+			data = list1.at(0);
 			Assert::AreEqual(data, 1);
 		}
 		TEST_METHOD(at_int_meadle)
@@ -86,8 +85,7 @@ namespace UnitTest1
 			list1.push_back(2);
 			list1.push_back(3);
 			int data;
-			int check;
-			list1.at(1, &data, &check);
+			data = list1.at(1);
 			Assert::AreEqual(data, 2);
 		}
 		TEST_METHOD(at_int_tail)
@@ -97,8 +95,7 @@ namespace UnitTest1
 			list1.push_back(2);
 			list1.push_back(3);
 			int data;
-			int check;
-			list1.at(2, &data, &check);
+			data = list1.at(2);
 			Assert::AreEqual(data, 3);
 		}
 		TEST_METHOD(at_int_out_of_range)
@@ -108,10 +105,9 @@ namespace UnitTest1
 			list1.push_back(2);
 			list1.push_back(3);
 			int data;
-			int check;
 			try
 			{
-				list1.at(3, &data, &check);
+				data = list1.at(3);
 			}
 			catch (exception &ex)
 			{
@@ -125,8 +121,7 @@ namespace UnitTest1
 			list1.push_back(2.7);
 			list1.push_back(3.7);
 			double data;
-			int check;
-			list1.at(0, &data, &check);
+			data = list1.at(0);
 			Assert::AreEqual(data, 1.7);
 		}
 		TEST_METHOD(at_double_meadle)
@@ -136,8 +131,7 @@ namespace UnitTest1
 			list1.push_back(2.7);
 			list1.push_back(3.7);
 			double data;
-			int check;
-			list1.at(1, &data, &check);
+			data = list1.at(1);
 			Assert::AreEqual(data, 2.7);
 		}
 		TEST_METHOD(at_double_tail)
@@ -147,8 +141,7 @@ namespace UnitTest1
 			list1.push_back(2.7);
 			list1.push_back(3.7);
 			double data;
-			int check;
-			list1.at(2, &data, &check);
+			data = list1.at(2);
 			Assert::AreEqual(data, 3.7);
 		}
 		TEST_METHOD(at_double_out_of_range)
@@ -158,10 +151,9 @@ namespace UnitTest1
 			list1.push_back(2.7);
 			list1.push_back(3.7);
 			double data;
-			int check;
 			try
 			{
-				list1.at(3, &data, &check);
+				data = list1.at(3);
 			}
 			catch (exception &ex)
 			{
@@ -175,8 +167,7 @@ namespace UnitTest1
 			list1.push_back('b');
 			list1.push_back('c');
 			char data;
-			int check;
-			list1.at(0, &data, &check);
+			data = list1.at(0);
 			Assert::AreEqual(data, 'a');
 		}
 		TEST_METHOD(at_char_meadle)
@@ -186,8 +177,7 @@ namespace UnitTest1
 			list1.push_back('b');
 			list1.push_back('c');
 			char data;
-			int check;
-			list1.at(1, &data, &check);
+			data = list1.at(1);
 			Assert::AreEqual(data, 'b');
 		}
 		TEST_METHOD(at_char_tail)
@@ -197,8 +187,7 @@ namespace UnitTest1
 			list1.push_back('b');
 			list1.push_back('c');
 			char data;
-			int check;
-			list1.at(2, &data, &check);
+			data = list1.at(2);
 			Assert::AreEqual(data, 'c');
 		}
 		TEST_METHOD(at_char_out_of_range)
@@ -208,10 +197,9 @@ namespace UnitTest1
 			list1.push_back('b');
 			list1.push_back('c');
 			char data;
-			int check;
 			try
 			{
-				list1.at(3, &data, &check);
+				data = list1.at(3);
 			}
 			catch (exception &ex)
 			{
@@ -897,47 +885,35 @@ namespace UnitTest1
 		TEST_METHOD(is_empty_int_empty)
 		{
 			list<int> list1;
-			int check;
-			list1.is_empty(&check);
-			Assert::AreEqual(1, check);
+			Assert::IsTrue(list1.is_empty());
 		}
 		TEST_METHOD(is_empty_int_isnt_empty)
 		{
 			list<int> list1;
 			list1.push_back(1);
-			int check;
-			list1.is_empty(&check);
-			Assert::AreEqual(-1, check);
+			Assert::IsFalse(list1.is_empty());
 		}
 		TEST_METHOD(is_empty_double_empty)
 		{
 			list<double> list1;
-			int check;
-			list1.is_empty(&check);
-			Assert::AreEqual(1, check);
+			Assert::IsTrue(list1.is_empty());
 		}
 		TEST_METHOD(is_empty_double_isnt_empty)
 		{
 			list<double> list1;
 			list1.push_back(1.7);
-			int check;
-			list1.is_empty(&check);
-			Assert::AreEqual(-1, check);
+			Assert::IsFalse(list1.is_empty());
 		}
 		TEST_METHOD(is_empty_char_empty)
 		{
 			list<char> list1;
-			int check;
-			list1.is_empty(&check);
-			Assert::AreEqual(1, check);
+			Assert::IsTrue(list1.is_empty());
 		}
 		TEST_METHOD(is_empty_char_isnt_empty)
 		{
 			list<int> list1;
 			list1.push_back('a');
-			int check;
-			list1.is_empty(&check);
-			Assert::AreEqual(-1, check);
+			Assert::IsFalse(list1.is_empty());
 		}
 	};
 }

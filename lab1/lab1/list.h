@@ -24,12 +24,12 @@ public:
 	void pop_back();
 	void pop_front();
 	void insert(size_t index, T data);
-	void at(size_t index, T*data, int*check);
+	T at(size_t index);
 	void remove(size_t index);
-	void get_size(size_t*size);
+	size_t get_size();
 	void clear();
 	void set(T data, size_t index);
-	void is_empty(int*check);
+	bool is_empty();
 	template <typename T> friend  ostream& operator << (ostream &, list<T> &);
 };
 
@@ -157,11 +157,10 @@ void list<T>::insert(size_t index, T data)
 }
 
 template<typename T>
-void list<T>::at(size_t index, T * data, int * check)
+T list<T>::at(size_t index)
 {
 	if (index >= size)
 	{
-		*check = -1;
 		throw exception("index bigger or like size");
 	}
 	size_t current = 0;
@@ -171,8 +170,7 @@ void list<T>::at(size_t index, T * data, int * check)
 		cur = cur->next;
 		current++;
 	}
-	*data = cur->data;
-	*check = 1;
+	return = cur->data;
 }
 
 template<typename T>
@@ -202,9 +200,9 @@ void list<T>::remove(size_t index)
 }
 
 template<typename T>
-void list<T>::get_size(size_t * size)
+size_t list<T>::get_size()
 {
-	*size = this->size;
+	return size;
 }
 
 template<typename T>
@@ -230,12 +228,12 @@ void list<T>::set(T data, size_t index)
 }
 
 template<typename T>
-void list<T>::is_empty(int * check)
+bool list<T>::is_empty()
 {
 	if (size == 0)
-		*check = 1;
+		return true;
 	else
-		*check = -1;
+		return false;
 }
 
 template<typename T>
